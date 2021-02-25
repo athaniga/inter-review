@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>InterReview Sign Up</title>
+</head>
+
+<body>
+    <h2>InterReview Create Account</h2>
+    <br/>
+    <form th:action="@{/signup}" th:object="${account}" method="post">
+        <div>
+            <label for="userName">Username: </label>
+            <input id="userName" type="text" th:field="*{userName}"/>
+        </div>
+        <div>
+            <label for="email">Email: </label>
+            <input id="email" type="text" th:field="*{email}"/>
+        </div>
+        <div>
+            <label for="password">Password: </label>
+            <input id="password" type="text" th:field="*{password}"/>
+        </div>
+        <div>
+            <label for="fName">First Name: </label>
+            <input id="fName" type="text" th:field="*{fName}"/>
+        </div>
+        <div>
+            <label for="lName">Last Name: </label>
+            <input id="lName" type="text" th:field="*{lName}"/>
+        </div>
+        <br/>
+        <input type="submit" value="Submit"/>
+    </form>
+
+
+</body>
+</html>
