@@ -5,15 +5,17 @@
 }
 
 #greet {
-    font-family: "Cambria Math";
-    font-size: larger;
+    font-family: "Cambria";
+    font-size: 25px;
 }
 
-#profileTable th{
+#profileTable th {
     border: 1px solid black;
 }
-#profileTable td{
+#profileTable td {
     border: 1px solid black;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 h2 {

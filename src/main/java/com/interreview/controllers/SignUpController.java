@@ -25,8 +25,6 @@ public class SignUpController {
         att.addFlashAttribute("lName", account.getlName());
         att.addFlashAttribute("email", account.getEmail());
         att.addFlashAttribute("username", account.getUserName());
-        System.out.println(account.getEmail());
-        System.out.println(account.getUserName());
 
         return "redirect:/profile";
     }
