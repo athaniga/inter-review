@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="general.css">
+</head>
+<body>
+    <h2>InterReview</h2>
+    <p id="greet">Hello, <span th:text="${fName}"></span></p>
+
+    <table id="profileTable">
+        <tr>
+            <th>Name:</th>
+            <th>Email:</th>
+            <th>Username:</th>
+        </tr>
+        <tr>
+            <td>
+                <p>
+                    <span th:text="${fName}"></span> <span th:text="${lName}"></span>
+                </p>
+            </td>
+            <td>
+                <p>
+                    <span th:text="${email}"></span>
+                </p>
+            </td>
+            <td>
+                <p>
+                    <span th:text="${username}"></span>
+                </p>
+            </td>
+
+        </tr>
+    </table>
+</body>
+</html>

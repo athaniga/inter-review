@@ -1,0 +1,21 @@
+#sof {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+#greet {
+    font-family: "Cambria Math";
+    font-size: larger;
+}
+
+#profileTable th{
+    border: 1px solid black;
+}
+#profileTable td{
+    border: 1px solid black;
+}
+
+h2 {
+    text-align: center;
+}
