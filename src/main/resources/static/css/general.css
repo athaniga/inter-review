@@ -2,6 +2,11 @@
     width:135px;
     height: 55px;
 }
+
+#footer {
+    margin-top: 100px;
+}
+
 #sof {
     margin: auto;
     width: 50%;
@@ -22,6 +27,4 @@
     padding-right: 5px;
 }
 
-h2 {
-    text-align: center;
-}
+
