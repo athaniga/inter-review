@@ -12,49 +12,50 @@
 </head>
 <body>
 
-<th:block th:fragment="navigation">
-    <nav class="navbar navbar-expand-lg bg-primary" >
-        <a class="navbar-brand" href="#">Navigation</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<!-- Nav Bar -->
+    <nav th:block th:fragment="navigation" class="navbar navbar-expand-lg navbar-light"
+         style="background-color: #f2f3fa;">
+        <a class="navbar-brand" th:href="@{/}"><img id="logo" th:src="@{/images/logo.png}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/}">Home</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="signup">Create An Account</a>
                 </li>
-                <li>
-
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="profile">My Account</a>
                 </li>
             </ul>
+
         </div>
     </nav>
-</th:block>
+<!-- Nav Bar -->
 
+<!-- Header -->
+    <h2 th:block th:fragment="header" class="header">InterReview</h2>
+<!-- Header -->
+
+<!-- Copyright -->
+    <footer th:fragment="footer">
+        <div class="container text-center">
+            <span class="text-muted">Copyright 2021 Andrew Hanigan</span>
+        </div>
+    </footer>
+<!-- Copyright -->
 </body>
+
 <th:block th:fragment="scripts">
     <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
     <script th:src="@{/webjars/popper.js/1.16.0/umd/popper.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/4.5.2/js/bootstrap.min.js}"></script>
 </th:block>
+
 </html>
 
 

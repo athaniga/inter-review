@@ -5,10 +5,12 @@
     <th:block th:insert="fragments/base :: headerFiles"></th:block>
     <title>Profile Page</title>
 </head>
-<body>
-    <h2>InterReview</h2>
-    <p id="greet">Hello, <span th:text="${fName}"></span></p>
 
+<body>
+    <br/>
+    <th:block th:insert="fragments/base :: navigation"></th:block>
+    <p id="greet">Hello, <span th:text="${fName}"></span></p>
+    <br/>
     <table id="profileTable">
         <tr>
             <th>Name:</th>
@@ -34,5 +36,10 @@
 
         </tr>
     </table>
+
+    <th:block th:insert="fragments/base :: footer"></th:block>
 </body>
+
+    <th:block th:insert="fragments/base :: scripts"></th:block>
+
 </html>

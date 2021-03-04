@@ -9,6 +9,8 @@
 <body>
     <h2>InterReview</h2>
     <br/>
+    <th:block th:insert="fragments/base :: navigation"></th:block>
+    <br/>
     <div id="sof">
         <p>Create Account:</p>
         <form th:action="@{/signup}" th:object="${account}" method="post">
@@ -37,6 +39,9 @@
         </form>
     </div>
 
-
+    <th:block th:insert="fragments/base :: footer"></th:block>
 </body>
+
+    <th:block th:insert="fragments/base :: scripts"></th:block>
+
 </html>
