@@ -7,37 +7,62 @@
 </head>
 
 <body>
-    <h2>InterReview</h2>
-    <br/>
+
     <th:block th:insert="fragments/base :: navigation"></th:block>
     <br/>
-    <div id="sof">
-        <p>Create Account:</p>
-        <form th:action="@{/signup}" th:object="${account}" method="post">
-            <div>
-                <label for="userName">Username: </label>
-                <input id="userName" type="text" th:field="*{userName}"/>
+    <p>Create Account:</p>
+    <form class="mt-4" th:action="@{/signup}" th:object="${account}" method="post">
+        <div class="container-fluid">
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <input class="form-control" id="userName" type="text"
+                           th:field="*{userName}" placeholder="User Name"/>
+                </div>
             </div>
-            <div>
-                <label for="email">Email: </label>
-                <input id="email" type="email" th:field="*{email}"/>
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <input class="form-control" id="email" type="email"
+                           th:field="*{email}" placeholder="Email"/>
+                </div>
             </div>
-            <div>
-                <label for="password">Password: </label>
-                <input id="password" type="password" th:field="*{password}"/>
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <input class="form-control" id="password" type="password"
+                           th:field="*{password}" placeholder="Password"/>
+                </div>
             </div>
-            <div>
-                <label for="fName">First Name: </label>
-                <input id="fName" type="text" th:field="*{fName}"/>
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <input class="form-control" id="fName" type="text"
+                           th:field="*{fName}" placeholder="First Name"/>
+                </div>
             </div>
-            <div>
-                <label for="lName">Last Name: </label>
-                <input id="lName" type="text" th:field="*{lName}"/>
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <input class="form-control" id="lName" type="text"
+                           th:field="*{lName}" placeholder="Last Name"/>
+                </div>
             </div>
-            <br/>
-            <input type="submit" value="Submit"/>
-        </form>
-    </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-5">
+                    <input class="btn btn-light btn-outline-dark" type="submit" value="Submit"/>
+                </div>
+            </div>
+        </div>
+
+
+
+    </form>
 
     <th:block th:insert="fragments/base :: footer"></th:block>
 </body>
