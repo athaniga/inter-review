@@ -6,7 +6,12 @@
 #footer {
     margin-top: 100px;
 }
-
+#indexImg {
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: 200px;
+}
 #greet {
     font-family: "Cambria";
     font-size: 25px;
