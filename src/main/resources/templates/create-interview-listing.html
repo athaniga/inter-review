@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <th:block th:insert="fragments/base :: headerFiles"></th:block>
+    <title>Create An Interview Listing</title>
+</head>
+
+<body>
+    <th:block th:insert="fragments/base :: navigation"></th:block>
+
+    <p>Create An Interview Listing:</p>
+    <form class="mt-4" th:action="@{/create-interview-listing}" th:object="${interview}" method="post">
+        <div class="container-fluid">
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <input class="form-control" id="cField" type="text"
+                           th:field="*{cField}" placeholder="What career field was the interview for?"/> <!-- Can we change this to a dropdown? -->
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <input class="form-control" id="title" type="text"
+                           th:field="*{title}" placeholder="What was the job title?"/>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <input class="form-control" id="salary" type="text"
+                           th:field="*{salary}" placeholder="What was the offered salary?"/>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <th:block th:insert="fragments/base :: footer"></th:block>
+
+</body>
+
+<th:block th:insert="fragments/base :: scripts"></th:block>
+
+</html>
