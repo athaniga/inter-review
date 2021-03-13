@@ -1,6 +1,7 @@
 package com.interreview.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 @Entity
@@ -10,8 +11,12 @@ public class Interview {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private String cField;
+
+    @NotBlank(message = "Job title is required")
     private String title;
+
     private double salary;
+
     private LocalDateTime created;
     private LocalDateTime modified;
 
