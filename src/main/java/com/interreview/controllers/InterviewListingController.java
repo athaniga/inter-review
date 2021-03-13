@@ -30,9 +30,8 @@ public class InterviewListingController {
     }
 
     @PostMapping
-    public String handleCreateInterviewForm(@ModelAttribute("interview") Interview interview, RedirectAttributes att) {
-
-
+    public String handleCreateInterviewForm(@ModelAttribute("interview") Interview interview) {
+        this.interviewRepo.save(interview);
         return "redirect:/reviews";
     }
 }

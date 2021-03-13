@@ -10,7 +10,7 @@
     <th:block th:insert="fragments/base :: navigation"></th:block>
 
     <p>Create An Interview Listing:</p>
-    <form class="mt-4" th:action="@{/create-interview-listing}" th:object="${interview}" method="post">
+    <form class="mt-4" th:action="@{/create-listing}" th:object="${interview}" method="post">
         <div class="container-fluid">
             <div class="row justify-content-center mb-3">
                 <div class="col-8 col-md-5">
@@ -30,8 +30,15 @@
         <div class="container-fluid">
             <div class="row justify-content-center mb-3">
                 <div class="col-8 col-md-5">
-                    <input class="form-control" id="salary" type="text"
+                    <input class="form-control" id="salary" type="number"
                            th:field="*{salary}" placeholder="What was the offered salary?"/>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-5">
+                    <input class="btn btn-light btn-outline-dark" type="submit" value="Submit"/>
                 </div>
             </div>
         </div>
