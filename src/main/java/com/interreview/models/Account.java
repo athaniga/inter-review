@@ -1,8 +1,14 @@
 package com.interreview.models;
 
+import javax.persistence.Column;
+import javax.validation.constraints.Email;
+
 public class Account {
 
+    @Column(unique = true)
     private String userName;
+    @Email(message = "Please enter a valid email address")
+    @Column(unique = true)
     private String email;
     private String password;
     private String fName;

@@ -17,7 +17,7 @@ public class Interview {
     @NotBlank(message = "Job title is required")
     private String title;
     private String description;
-    @Positive(message = "Value must not be negative")
+    @Positive(message = "Value can not be negative")
     private double salary;
     //private String uploadedBy; Grab username?
 
@@ -31,15 +31,12 @@ public class Interview {
         this.description = "";
     }
 
-    public Interview(String cField, String title) {
-        this.cField = cField;
-        this.title = title;
-    }
 
-    public Interview(String cField, String title, double salary) {
+    public Interview(String cField, String title, double salary, String description) {
         this.cField = cField;
         this.title = title;
         this.salary = salary;
+        this.description = description;
     }
 
     public LocalDateTime getCreated() {
