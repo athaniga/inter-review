@@ -21,6 +21,10 @@
                         <br/>
                         <span th:text="'Date Created: ' + ${#temporals.format(interview.created, 'dd-MM-yyyy HH:mm')}">
                         </span>
+                        </br>
+                        </br>
+                        <span th:text="'Interview Description: ' + ${interview.description}">
+                        </span>
                     </div>
                 </div>
                 <div class="col-2 col-md-4"></div>

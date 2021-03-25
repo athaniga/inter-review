@@ -10,12 +10,13 @@ public class Interview {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
+    @NotBlank(message = "Career field is required")
     private String cField;
-
     @NotBlank(message = "Job title is required")
     private String title;
-
+    private String description;
     private double salary;
+    //private String uploadedBy; Grab username?
 
     private LocalDateTime created;
     private LocalDateTime modified;
@@ -24,6 +25,7 @@ public class Interview {
         this.cField = "";
         this.title = "";
         this.salary = 0.00;
+        this.description = "";
     }
 
     public Interview(String cField, String title) {
@@ -75,6 +77,14 @@ public class Interview {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @PrePersist

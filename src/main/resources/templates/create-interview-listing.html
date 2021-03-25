@@ -34,10 +34,20 @@
 
             <div class="row justify-content-center mb-3">
                 <div class="col-8 col-md-5">
-                    <input class="form-control" id="salary" type="number"
+                    <input class="form-control" id="salary" type="number" min="0.00"
                            th:field="*{salary}" placeholder="What was the offered salary?"/>
                 </div>
             </div>
+
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <textarea class="form-control" id="description" type="text"
+                           th:field="*{description}"
+                              placeholder="Please write a brief description of the interview for this position..."/>
+                    </textarea>
+                </div>
+            </div>
+
             <div class="row justify-content-center">
                 <div class="col-8 col-md-5">
                     <input class="btn btn-light btn-outline-dark" type="submit" value="Submit"/>
