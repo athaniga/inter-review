@@ -1,7 +1,9 @@
 package com.interreview.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 import java.time.LocalDateTime;
 
 @Entity
@@ -15,6 +17,7 @@ public class Interview {
     @NotBlank(message = "Job title is required")
     private String title;
     private String description;
+    @Positive(message = "Value must not be negative")
     private double salary;
     //private String uploadedBy; Grab username?
 
