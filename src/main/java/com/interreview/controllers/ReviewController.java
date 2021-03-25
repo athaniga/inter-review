@@ -70,7 +70,7 @@ public class ReviewController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteReview(@PathVariable long id) {
+    public String deleteReview(@PathVariable Long id) {
         this.interviewRepo.deleteById(id);
         return "redirect:/reviews";
     }
