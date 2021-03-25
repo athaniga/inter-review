@@ -3,13 +3,18 @@
       xmlns:th="http://thymeleaf.org">
 <head>
     <th:block th:insert="fragments/base :: headerFiles"></th:block>
-    <title>Create An Interview Listing</title>
+    <title>Create An Interview Review</title>
 </head>
 
 <body>
     <th:block th:insert="fragments/base :: navigation"></th:block>
+    <br>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <h3 class="text-center col-12">Create a Review:</h3>
+        </div>
+    </div>
 
-    <p>Create An Interview Listing:</p>
     <form class="mt-4" th:action="@{/create-listing}" th:object="${interview}" method="post">
         <div class="container-fluid">
             <div class="row justify-content-center mb-3">
@@ -38,6 +43,7 @@
                            th:field="*{salary}" placeholder="What was the offered salary?"/>
                 </div>
             </div>
+
             <div class="row justify-content-center mb-3">
                 <div class="col-8 col-md-5">
                     <span class="text-danger small" th:if="${#fields.hasErrors('salary')}"

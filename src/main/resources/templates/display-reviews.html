@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <th:block th:insert="fragments/base :: headerFiles"></th:block>
+    <title>All Reviews</title>
+</head>
+<body>
+    <th:block th:insert="fragments/base :: navigation"></th:block>
+    <br>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <h3 class="text-center col-12">All Reviews</h3>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-5">
+        <div th:each="interview: ${interviews}">
+            <div class="row justify-content-center mb-3">
+                <div class="col-2 col-md-4"></div>
+                <div class="col-8 col-md-4 card">
+                    <div class="card-body">
+                        <h5 class="card-title d-inline" th:text="${interview.title}"></h5>
+                        <a class="ml-3"><i class="fas fa-eye"></i></a>
+                    </div>
+                </div>
+                <div class="col-2 col-md-4"></div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <th:block th:insert="fragments/base :: footer"></th:block>
+</body>
+    <th:block th:insert="fragments/base :: scripts"></th:block>
+</html>

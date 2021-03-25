@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <th:block th:insert="fragments/base :: headerFiles"></th:block>
+    <title></title>
+</head>
+<body>
+    <th:block th:insert="fragments/base :: navigation"></th:block>
+    </br>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <h3 class="text-center col-12">View/Edit Review</h3>
+        </div>
+
+    </div>
+
+    <form class="mt-4" th:action="@{/create-listing}" th:object="${interview}" method="post">
+        <div class="container-fluid">
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <input class="form-control" id="cField" type="text"
+                           th:field="*{cField}" placeholder="What career field was the interview for?"/> <!-- Can we change this to a dropdown? -->
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-5">
+                    <input class="form-control" id="title" type="text"
+                           th:field="*{title}" placeholder="What was the job title?"/>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <span class="text-danger small" th:if="${#fields.hasErrors('title')}"
+                          th:errors="*{title}">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <input class="form-control" id="salary" type="number" min="0.00"
+                           th:field="*{salary}" placeholder="What was the offered salary?"/>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <span class="text-danger small" th:if="${#fields.hasErrors('salary')}"
+                          th:errors="*{salary}">
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <textarea class="form-control" id="description" type="text"
+                              th:field="*{description}"
+                              placeholder="Please write a brief description of the interview for this position..."/>
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-5">
+                    <input class="btn btn-light btn-outline-dark" type="submit" value="Submit"/>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <th:block th:insert="fragments/base :: footer"></th:block>
+</body>
+    <th:block th:insert="fragments/base :: scripts"></th:block>
+</html>
