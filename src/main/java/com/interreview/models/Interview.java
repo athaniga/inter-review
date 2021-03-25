@@ -40,6 +40,10 @@ public class Interview {
         this.description = description;
     }
 
+    public long getId() {
+        return this.id;
+    }
+
     public LocalDateTime getCreated() {
         return created;
     }

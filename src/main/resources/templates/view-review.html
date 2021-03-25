@@ -7,15 +7,16 @@
 </head>
 <body>
     <th:block th:insert="fragments/base :: navigation"></th:block>
+
     </br>
-    <div class="container-fluid">
+    <div class="container-fluid mt-2">
         <div class="row justify-content-center">
             <h3 class="text-center col-12">View/Edit Review</h3>
         </div>
 
     </div>
 
-    <form class="mt-4" th:action="@{/create-listing}" th:object="${interview}" method="post">
+    <form class="mt-3 mb-3" th:action="@{/create-listing/edit/{id}(id=${interview.id})}" th:object="${interview}" method="post">
         <div class="container-fluid">
             <div class="row justify-content-center mb-3">
                 <div class="col-8 col-md-5">
@@ -61,9 +62,21 @@
                 </div>
             </div>
 
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-3">
+                    <span th:text="'Date Created: ' + ${#temporals.format(interview.created, 'dd-MM-yyyy HH:mm')}">
+                    </span>
+                    <br>
+                    <span th:text="'Date Modified: ' + ${#temporals.format(interview.modified, 'dd-MM-yyyy HH:mm')}">
+                    </span>
+
+                </div>
+            </div>
+
             <div class="row justify-content-center">
                 <div class="col-8 col-md-5">
                     <input class="btn btn-light btn-outline-dark" type="submit" value="Submit"/>
+                    <a class="ml-2 btn btn-light btn-outline-dark" th:href="@{/reviews}">Cancel</a>
                 </div>
             </div>
         </div>
