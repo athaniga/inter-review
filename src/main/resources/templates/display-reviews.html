@@ -22,12 +22,12 @@
                     <div class="card-body">
                         <h5 class="card-title d-inline" th:text="${interview.title}"></h5>
                         <a th:href="@{/create-listing/view/{id}(id=${interview.id})}"class="ml-3"><i class="fas fa-eye"></i></a>
-                        <a type="button" class="ml-3 text-danger" data-toggle="modal" data-target="#confirmDelete">
+                        <a type="button" class="ml-3 text-danger" data-toggle="modal" th:data-target="'#confirmDelete' + ${interview.id}">
                             <i class="fas fa-trash"></i>
                         </a>
 
                         <!-- Modal Space -->
-                        <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+                        <div class="modal fade" th:id="'confirmDelete' + ${interview.id}" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
