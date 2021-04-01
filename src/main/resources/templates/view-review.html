@@ -24,6 +24,13 @@
                            th:field="*{cField}" placeholder="What career field was the interview for?"/> <!-- Can we change this to a dropdown? -->
                 </div>
             </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <span class="text-danger small" th:if="${#fields.hasErrors('cField')}"
+                          th:errors="*{cField}">
+                    </span>
+                </div>
+            </div>
             <div class="row justify-content-center">
                 <div class="col-8 col-md-5">
                     <input class="form-control" id="title" type="text"

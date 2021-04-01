@@ -1,10 +1,7 @@
 package com.interreview.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,6 +16,7 @@ public class Interview {
     private String title;
     private String description;
     @PositiveOrZero(message = "Value can not be negative")
+    @NotNull(message = "Cannot be left blank")
     private double salary;
     //private String uploadedBy; Grab username?
 
@@ -39,6 +37,7 @@ public class Interview {
         this.salary = salary;
         this.description = description;
     }
+
 
     public long getId() {
         return this.id;

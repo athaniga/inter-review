@@ -11,16 +11,50 @@ public class CareerField {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
-    private String fieldType;
+    private String fieldName;
+    private int avgSalary;
+    private int avgWorkHours;
 
     public CareerField() {
-        this.fieldType = "";
+
+    }
+
+    public CareerField(String fieldName, int avgSalary, int avgWorkHours) {
+        this.fieldName = fieldName;
+        this.avgSalary = avgSalary;
+        this.avgWorkHours = avgWorkHours;
     }
 
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
+    public String getFieldName() {
+        return fieldName;
+    }
 
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
+    }
 
+    public int getAvgSalary() {
+        return avgSalary;
+    }
 
+    public void setAvgSalary(int avgSalary) {
+        this.avgSalary = avgSalary;
+    }
+
+    public int getAvgWorkHours() {
+        return avgWorkHours;
+    }
+
+    public void setAvgWorkHours(int avgWorkHours) {
+        this.avgWorkHours = avgWorkHours;
+    }
 }
