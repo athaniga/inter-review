@@ -18,10 +18,11 @@
 
     <form class="mt-3 mb-3" th:action="@{/create-listing/edit/{id}(id=${interview.id})}" th:object="${interview}" method="post">
         <div class="container-fluid">
+            <!-- Disabled for now
             <div class="row justify-content-center mb-3">
                 <div class="col-8 col-md-5">
                     <input class="form-control" id="cField" type="text"
-                           th:field="*{cField}" placeholder="What career field was the interview for?"/> <!-- Can we change this to a dropdown? -->
+                           th:field="*{cField}" placeholder="What career field was the interview for?"/>
                 </div>
             </div>
             <div class="row justify-content-center mb-3">
@@ -31,6 +32,8 @@
                     </span>
                 </div>
             </div>
+        -->
+
             <div class="row justify-content-center">
                 <div class="col-8 col-md-5">
                     <input class="form-control" id="title" type="text"

@@ -24,10 +24,18 @@ public class CareerField {
         this.avgWorkHours = avgWorkHours;
     }
 
-    @OneToMany(mappedBy = "cField", cascade = CascadeType.PERSIST)
+
+
+    @OneToMany(mappedBy = "careerField", cascade = CascadeType.PERSIST)
     private Set<Interview> interviews = new HashSet<>();
 
+    public Set<Interview> getInterviews() {
+        return interviews;
+    }
 
+    public void setInterviews(Set<Interview> interviews) {
+        this.interviews = interviews;
+    }
 
     public long getId() {
         return id;
@@ -74,5 +82,10 @@ public class CareerField {
     @Override
     public int hashCode() {
         return this.fieldName.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return fieldName;
     }
 }

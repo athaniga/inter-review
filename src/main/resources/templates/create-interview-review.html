@@ -17,13 +17,14 @@
 
     <form class="mt-4" th:action="@{/create-listing}" th:object="${interview}" method="post">
         <div class="container-fluid">
-            <!-- cField input -->
+            <!-- cField input
             <div class="row justify-content-center mb-3">
                 <div class="col-8 col-md-5">
                     <input class="form-control" id="cField" type="text"
-                           th:field="*{cField}" placeholder="What career field was the interview for?"/> <!-- Can we change this to a dropdown? -->
+                           th:field="*{cField}" placeholder="What career field was the interview for?"/>
                 </div>
             </div>
+
             <div class="row justify-content-center mb-3">
                 <div class="col-8 col-md-5">
                     <span class="text-danger small" th:if="${#fields.hasErrors('cField')}"
@@ -31,6 +32,8 @@
                     </span>
                 </div>
             </div>
+            Disabled for now -->
+
             <!-- title input -->
             <div class="row justify-content-center">
                 <div class="col-8 col-md-5">
@@ -70,6 +73,23 @@
                 </div>
             </div>
 
+            <!-- Career Field choice -->
+            <div class="form-group">
+                <div class="row justify-content-center">
+                    <label for="cFields" class="col-5 col-form-label">Career Field:</label>
+                </div>
+                <div class="row justify-content-center">
+                    <select class="form-control selectpicker col-5 mb-3" id="cFields" name="careerField">
+                        <option th:each="cField: ${cField}"
+                                th:value="${cField.id}"
+                                th:text="${cField}">
+
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Submit button -->
             <div class="row justify-content-center">
                 <div class="col-8 col-md-5">
                     <input class="btn btn-light btn-outline-dark" type="submit" value="Submit"/>

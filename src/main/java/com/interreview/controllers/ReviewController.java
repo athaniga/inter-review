@@ -70,7 +70,7 @@ public class ReviewController {
     }
 
     private void updateOriginalReview(Interview original, Interview update) {
-        original.setcField(update.getcField());
+        //original.setcField(update.getcField());
         original.setTitle(update.getTitle());
         original.setDescription(update.getDescription());
         original.setSalary(update.getSalary());

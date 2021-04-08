@@ -28,7 +28,6 @@ public class Interview {
 
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "cField_id")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private CareerField careerField;
 
