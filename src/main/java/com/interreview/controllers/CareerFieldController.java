@@ -21,7 +21,7 @@ public class CareerFieldController {
         this.cFieldRepo = cFieldRepo;
     }
 
-    @GetMapping("/view")
+    @GetMapping()
     public String showCareerFields(Model model) {
         List<CareerField> cFields = (List<CareerField>) this.cFieldRepo.findAll();
         model.addAttribute("cFields", cFields);

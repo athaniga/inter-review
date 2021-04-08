@@ -1,8 +1,11 @@
 package com.interreview.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 public class Interview {
@@ -22,6 +25,14 @@ public class Interview {
 
     private LocalDateTime created;
     private LocalDateTime modified;
+
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "cField_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private CareerField careerField;
+
+
 
     public Interview() {
         this.cField = "";
@@ -90,6 +101,7 @@ public class Interview {
     public void setDescription(String description) {
         this.description = description;
     }
+
 
     @PrePersist
     public void onCreate()  {

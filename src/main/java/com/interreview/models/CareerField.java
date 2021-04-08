@@ -1,9 +1,8 @@
 package com.interreview.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class CareerField {
@@ -24,6 +23,10 @@ public class CareerField {
         this.avgSalary = avgSalary;
         this.avgWorkHours = avgWorkHours;
     }
+
+    @OneToMany(mappedBy = "cField", cascade = CascadeType.PERSIST)
+    private Set<Interview> interviews = new HashSet<>();
+
 
 
     public long getId() {
@@ -56,5 +59,20 @@ public class CareerField {
 
     public void setAvgWorkHours(int avgWorkHours) {
         this.avgWorkHours = avgWorkHours;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof CareerField)) {
+            return false;
+        }
+
+        CareerField c = (CareerField) o;
+        return this.fieldName.equals(c.fieldName);
+    }
+
+    @Override
+    public int hashCode() {
+        return this.fieldName.hashCode();
     }
 }

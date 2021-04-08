@@ -1,6 +1,8 @@
 package com.interreview.controllers;
 
+import com.interreview.data.CareerFieldRepository;
 import com.interreview.data.InterviewRepository;
+import com.interreview.models.CareerField;
 import com.interreview.models.Interview;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -10,20 +12,26 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/create-listing")
 public class ReviewController {
 
     private InterviewRepository interviewRepo;
+    private CareerFieldRepository careerFieldRepo;
 
     @Autowired
-    public ReviewController(InterviewRepository interviewRepo) {
+    public ReviewController(InterviewRepository interviewRepo, CareerFieldRepository careerFieldRepo) {
         this.interviewRepo = interviewRepo;
+        this.careerFieldRepo = careerFieldRepo;
     }
 
     @GetMapping
     public String showCreateInterviewListing(Model model) {
+        List<CareerField> careerFields = (List<CareerField>) careerFieldRepo.findAll();
+        model.addAttribute("cField", careerFields);
         model.addAttribute("interview", new Interview());
         return "create-interview-review";
     }
