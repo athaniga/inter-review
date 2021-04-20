@@ -83,6 +83,20 @@
                 </div>
             </div>
 
+            <div class="mb-3" th:each="fieldName: *{careerField}">
+                <div class="row justify-content-center mb-1">
+                    <div class="col-8 col-md-3">
+                        <span>Career Field: </span>
+                        <span th:text="${fieldName}"></span>
+                        <!-- User should not be able to delete Career Field, should they be able to change though?
+                        <a th:href="@/create-listing/{id}/remove-class/{cFieldId}(id=${career_field_id}, cFieldId={cField.id})}"
+                           class="ml-3 text-danger"><i class="fas fa-trash-alt"></i></a>
+                           -->
+
+                    </div>
+                </div>
+            </div>
+
             <div class="row justify-content-center">
                 <div class="col-8 col-md-5">
                     <input class="btn btn-light btn-outline-dark" type="submit" value="Submit"/>

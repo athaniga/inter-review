@@ -13,7 +13,7 @@ public class Interview {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
-    @NotBlank(message = "Career field is required")
+    //@NotBlank(message = "Career field is required")
     private String cField;
     @NotBlank(message = "Job title is required")
     private String title;
@@ -27,8 +27,10 @@ public class Interview {
     private LocalDateTime modified;
 
 
+
+
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JoinColumn(name = "career_field_id")
     private CareerField careerField;
 
 
@@ -99,6 +101,14 @@ public class Interview {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public CareerField getCareerField() {
+        return careerField;
+    }
+
+    public void setCareerField(CareerField careerField) {
+        this.careerField = careerField;
     }
 
 
