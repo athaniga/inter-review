@@ -28,17 +28,22 @@
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
                     <a class="nav-link" th:href="@{/}">Home</a>
                 </li>
-                <li class="nav-item" th:classappend="${#request.getServletPath() == '/create-listing' ? 'active' : ''}">
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/create-listing' ? 'active' : ''}"
+                    sec:authorize="isAuthenticated()">
                     <a class="nav-link" th:href="@{create-listing}">Create A Review</a>
                 </li>
-                <li class="nav-item" th:classappend="${#request.getServletPath() == '/reviews' ? 'active' : ''}">
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/reviews' ? 'active' : ''}"
+                    sec:authorize="isAuthenticated()">
                     <a class="nav-link" th:href="@{reviews}">All Reviews</a>
                 </li>
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/career-fields' ? 'active' : ''}">
                     <a class="nav-link" th:href="@{career-fields}">Career Fields</a>
                 </li>
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/about' ? 'active' : ''}">
+                    <a class="nav-link" th:href="@{about}">About</a>
+                </li>
             </ul>
-            <a th:href="@{/logout}" class="btn btn-light btn-outline-primary">Logout</a>
+            <a th:href="@{/logout}" class="btn btn-light btn-outline-primary" sec:authorize="isAuthenticated()">Logout</a>
 
         </div>
     </nav>

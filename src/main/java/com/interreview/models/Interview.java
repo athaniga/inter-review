@@ -13,13 +13,13 @@ public class Interview {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
-    //@NotBlank(message = "Career field is required")
-    private String cField;
+
     @NotBlank(message = "Job title is required")
     private String title;
+    @NotBlank(message = "Company or Organization name required")
+    private String company;
     private String description;
-    @PositiveOrZero(message = "Value can not be negative")
-    @NotNull(message = "Cannot be left blank")
+    @PositiveOrZero(message = "Value can not be negative. For volunteer work, enter 0")
     private double salary;
     //private String uploadedBy; Grab username?
 
@@ -36,15 +36,15 @@ public class Interview {
 
 
     public Interview() {
-        this.cField = "";
+        this.company = "";
         this.title = "";
         this.salary = 0.00;
         this.description = "";
     }
 
 
-    public Interview(String cField, String title, double salary, String description) {
-        this.cField = cField;
+    public Interview(String company, String title, double salary, String description) {
+        this.company = company;
         this.title = title;
         this.salary = salary;
         this.description = description;
@@ -71,12 +71,12 @@ public class Interview {
         this.modified = modified;
     }
 
-    public String getcField() {
-        return cField;
+    public String getCompany() {
+        return company;
     }
 
-    public void setcField(String cField) {
-        this.cField = cField;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
     public String getTitle() {

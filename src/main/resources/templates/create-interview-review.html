@@ -37,6 +37,19 @@
             <!-- title input -->
             <div class="row justify-content-center">
                 <div class="col-8 col-md-5">
+                    <input class="form-control" id="company" type="text"
+                           th:field="*{company}" placeholder="What Company or Organization was the interview for?"/>
+                </div>
+            </div>
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <span class="text-danger small" th:if="${#fields.hasErrors('company')}"
+                          th:errors="*{company}">
+                    </span>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-5">
                     <input class="form-control" id="title" type="text"
                            th:field="*{title}" placeholder="What was the job title?"/>
                 </div>
