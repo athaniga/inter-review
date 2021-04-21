@@ -20,6 +20,7 @@ public class Interview {
     private String company;
     private String description;
     @PositiveOrZero(message = "Value can not be negative. For volunteer work, enter 0")
+    @NotNull(message = "Cannot be blank")
     private double salary;
     //private String uploadedBy; Grab username?
 
