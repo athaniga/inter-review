@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://thymeleaf.org">
+      xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <th:block th:fragment="headerFiles">
         <meta charset="UTF-8">
@@ -27,12 +28,6 @@
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/' ? 'active' : ''}">
                     <a class="nav-link" th:href="@{/}">Home</a>
                 </li>
-                <li class="nav-item" th:classappend="${#request.getServletPath() == '/signup' ? 'active' : ''}">
-                    <a class="nav-link" th:href="@{signup}">Create An Account</a>
-                </li>
-                <li class="nav-item" th:classappend="${#request.getServletPath() == '/profile' ? 'active' : ''}">
-                    <a class="nav-link" th:href="@{profile}">My Account</a>
-                </li>
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/create-listing' ? 'active' : ''}">
                     <a class="nav-link" th:href="@{create-listing}">Create A Review</a>
                 </li>
@@ -43,7 +38,7 @@
                     <a class="nav-link" th:href="@{career-fields}">Career Fields</a>
                 </li>
             </ul>
-            <a th:href="@{/logout}" class="btn btn-light btn-outline-dark">Logout</a>
+            <a th:href="@{/logout}" class="btn btn-light btn-outline-primary">Logout</a>
 
         </div>
     </nav>
