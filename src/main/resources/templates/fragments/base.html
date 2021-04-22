@@ -39,10 +39,15 @@
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/career-fields' ? 'active' : ''}">
                     <a class="nav-link" th:href="@{career-fields}">Career Fields</a>
                 </li>
+                <li class="nav-item" th:classappend="${#request.getServletPath() == '/signup' ? 'active' : ''}"
+                    sec:authorize="isAnonymous()">
+                    <a class="nav-link" th:href="@{signup}">Create an Account</a>
+                </li>
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/about' ? 'active' : ''}">
                     <a class="nav-link" th:href="@{about}">About</a>
                 </li>
             </ul>
+            <a th:href="@{/login}" class="btn btn-light btn-outline-primary" sec:authorize="isAnonymous()">Login</a>
             <a th:href="@{/logout}" class="btn btn-light btn-outline-primary" sec:authorize="isAuthenticated()">Logout</a>
 
         </div>

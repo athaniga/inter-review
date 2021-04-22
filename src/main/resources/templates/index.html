@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://thymeleaf.org">
+      xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <head>
     <th:block th:insert="fragments/base :: headerFiles"></th:block>
     <title>InterReview Home</title>
@@ -14,7 +16,12 @@
     <p>A site for job interview discussion and prep.</p>
 
     <div class="container-fluid">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" sec:authorize="isAuthenticated()">
+            <div class="col-8 col-md-3 text-center mb-3">
+                <h4 th:text="'Hello ' + ${user.firstName} + ' ' + '!'"></h4>
+            </div>
+        </div>
+        <div class="row justify-content-center" sec:authorize="isAnonymous()">
             <div class="col-8 col-md-3 text-center mb-3">
                 <a th:href="@{/login}" class="btn btn-light btn-outline-primary btn-lg">Login</a>
             </div>
