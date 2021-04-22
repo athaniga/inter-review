@@ -41,9 +41,12 @@ public class AccountController {
             return "create-signup";
         }
         user.setEnabled(true);
+        user.setAccountNonExpired(true);
+        user.setCredentialsNonExpired(true);
+        user.setAccountNonLocked(true);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoles(Set.of(User.Role.ROLE_USER));
         this.userRepo.save(user);
-        return "redirect:/index";
+        return "redirect:/";
     }
 }
