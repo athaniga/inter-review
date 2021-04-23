@@ -4,6 +4,7 @@ import com.interreview.data.UserRepository;
 import com.interreview.models.Interview;
 import com.interreview.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,13 +41,19 @@ public class AccountController {
         if (errors.hasErrors()) {
             return "create-signup";
         }
-        user.setEnabled(true);
-        user.setAccountNonExpired(true);
-        user.setCredentialsNonExpired(true);
-        user.setAccountNonLocked(true);
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRoles(Set.of(User.Role.ROLE_USER));
-        this.userRepo.save(user);
+        try{
+            user.setEnabled(true);
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            user.setRoles(Set.of(User.Role.ROLE_USER));
+            this.userRepo.save(user);
+        } catch (DataIntegrityViolationException ex) {
+            errors.rejectValue("email", "email error", "Email already exists");
+            errors.rejectValue("username", "username error", "Username already exists");
+            return "create-signup";
+        }
+
         return "redirect:/";
+
+
     }
 }
