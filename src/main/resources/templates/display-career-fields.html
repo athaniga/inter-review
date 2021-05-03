@@ -11,13 +11,11 @@
     <div class="container-fluid mt-4">
         <div th:each="cFields: ${cFields}">
             <div class="row justify-content-center mb-3">
-                <div class="col-2 col-md-4"></div>
-                <div class="col-2 col-md-4 card">
+                <div class="col-8 col-mb-4 card">
                     <div class="card-body">
                         <h4 class="card-title d-inline" th:text="${cFields.fieldName}"></h4>
                     </div>
                 </div>
-                <div class="col-2 col-md-4"></div>
             </div>
         </div>
     </div>

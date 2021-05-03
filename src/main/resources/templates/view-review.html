@@ -46,6 +46,13 @@
                 </div>
             </div>
 
+
+
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <p th:text="'Uploaded by: ' + ${interview.user.username}"></p>
+                </div>
+            </div>
             <div class="row justify-content-center mb-3">
                 <div class="col-8 col-md-3">
                     <span th:text="'Date Created: ' + ${#temporals.format(interview.created, 'dd-MM-yyyy HH:mm')}">
@@ -56,18 +63,12 @@
                 </div>
             </div>
 
-            <div class="row justify-content-center mb-3">
-                <div class="col-8 col-md-5">
-                    <p th:text="'Uploaded by: ' + ${interview.user.username}"></p>
-                </div>
-            </div>
-
-
             <div class="row justify-content-center">
                 <div class="col-8 col-md-5">
                     <a class="ml-2 btn btn-light btn-outline-primary" th:href="@{/reviews}">Back</a>
                 </div>
             </div>
+
         </div>
 
 
