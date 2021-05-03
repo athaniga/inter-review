@@ -56,8 +56,10 @@ public class ReviewController {
     }
 
     @PostMapping
-    public String handleCreateInterviewForm(@Valid @ModelAttribute("interview") Interview interview, Errors errors, @AuthenticationPrincipal User user) {
+    public String handleCreateInterviewForm(@Valid @ModelAttribute("interview") Interview interview, Errors errors, @AuthenticationPrincipal User user, Model model) {
         if (errors.hasErrors()) {
+            List<CareerField> careerFields = (List<CareerField>) careerFieldRepo.findAll();
+            model.addAttribute("cField", careerFields);
             return "create-interview-review";
         }
         try {
@@ -66,12 +68,11 @@ public class ReviewController {
         } catch (DataIntegrityViolationException e) {
             return "create-interview-review";
         }
-
         return "redirect:/reviews/user-reviews";
     }
 
     @PostMapping("/edit/{id}")
-    public String handleEditReviewForm(@PathVariable Long id, @Valid @ModelAttribute("interview") Interview interview, Errors errors) {
+    public String handleEditReviewForm(@PathVariable Long id, @Valid @ModelAttribute("interview") Interview interview, Errors errors, Model model) {
         if (errors.hasErrors()) {
             return "edit-review";
         }
@@ -92,7 +93,6 @@ public class ReviewController {
         original.setTitle(update.getTitle());
         original.setDescription(update.getDescription());
         original.setSalary(update.getSalary());
-
     }
 
     @GetMapping("/delete/{id}")

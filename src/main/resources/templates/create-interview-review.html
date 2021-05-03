@@ -17,22 +17,6 @@
 
     <form class="mt-4" th:action="@{/create-listing}" th:object="${interview}" method="post">
         <div class="container-fluid">
-            <!-- cField input
-            <div class="row justify-content-center mb-3">
-                <div class="col-8 col-md-5">
-                    <input class="form-control" id="cField" type="text"
-                           th:field="*{cField}" placeholder="What career field was the interview for?"/>
-                </div>
-            </div>
-
-            <div class="row justify-content-center mb-3">
-                <div class="col-8 col-md-5">
-                    <span class="text-danger small" th:if="${#fields.hasErrors('cField')}"
-                          th:errors="*{cField}">
-                    </span>
-                </div>
-            </div>
-            Disabled for now -->
 
             <!-- Company name input -->
             <div class="row justify-content-center">
@@ -65,8 +49,8 @@
             <!-- salary input -->
             <div class="row justify-content-center mb-3">
                 <div class="col-8 col-md-5">
-                    <input class="form-control" id="salary" type="number" min="0.00"
-                           th:field="*{salary}" placeholder="What was the offered salary?"/>
+                    <input class="form-control" id="salary" type="number" min="0"
+                           th:field="*{salary}" placeholder="What was the offered salary?" required/>
                 </div>
             </div>
 
@@ -81,8 +65,8 @@
             <div class="row justify-content-center mb-3">
                 <div class="col-8 col-md-5">
                     <textarea class="form-control" id="description" type="text"
-                           th:field="*{description}"
-                              placeholder="Please write a brief description of the interview for this position..."/>
+                              placeholder="Please write a brief description of the interview for this position..."
+                              th:field="*{description}"/>
                     </textarea>
                 </div>
             </div>
@@ -93,11 +77,10 @@
                     <label for="cFields" class="col-5 col-form-label">Career Field:</label>
                 </div>
                 <div class="row justify-content-center">
-                    <select class="form-control selectpicker col-5 mb-3" id="cFields" name="careerField">
+                    <select class="form-control selectpicker col-5 mb-3" th:field="*{careerField}" id="cFields" name="careerField">
                         <option th:each="cField: ${cField}"
                                 th:value="${cField.id}"
                                 th:text="${cField}">
-
                         </option>
                     </select>
                 </div>
