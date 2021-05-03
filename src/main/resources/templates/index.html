@@ -11,9 +11,7 @@
 <body>
     <th:block th:insert="fragments/base :: navigation"></th:block>
     <br/>
-    <p>Welcome to InterReview!</p>
-    <br/>
-    <p>A site for job interview discussion and prep.</p>
+
 
     <div class="container-fluid">
         <div class="row justify-content-center" sec:authorize="isAuthenticated()">
@@ -22,6 +20,9 @@
             </div>
         </div>
         <div class="row justify-content-center" sec:authorize="isAnonymous()">
+            <p>Welcome to InterReview!</p>
+            <br/>
+            <p>A site for job interview discussion and prep.</p>
             <div class="col-8 col-md-3 text-center mb-3">
                 <a th:href="@{/login}" class="btn btn-light btn-outline-primary btn-lg">Login</a>
             </div>

@@ -41,11 +41,18 @@ public class ReviewController {
         return "create-interview-review";
     }
 
-    @GetMapping("/view/{id}")
+    @GetMapping("/edit/{id}")
     public String showReview(@PathVariable Long id, Model model) {
         Interview interview = this.interviewRepo.findById(id).get();
         model.addAttribute("interview", interview);
         return "edit-review";
+    }
+
+    @GetMapping("/view/{id}")
+    public String viewReview(@PathVariable Long id, Model model) {
+        Interview interview = this.interviewRepo.findById(id).get();
+        model.addAttribute("interview", interview);
+        return "view-review";
     }
 
     @PostMapping

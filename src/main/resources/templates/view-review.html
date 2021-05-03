@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <th:block th:insert="fragments/base :: headerFiles"></th:block>
+    <title></title>
+</head>
+<body>
+    <th:block th:insert="fragments/base :: navigation"></th:block>
+
+    </br>
+    <div class="container-fluid mt-2">
+        <div class="row justify-content-center">
+            <h3 class="text-center col-12" th:text="${interview.title}"></h3>
+        </div>
+
+    </div>
+
+
+        <div class="container-fluid">
+            <div class="row justify-content-center mt-2">
+                <div class="col-8 col-md-5">
+                    <p th:text="'Career Field: ' + ${interview.careerField}"></p>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <p th:text="'Company Name: ' + ${interview.company}"></p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <p>Interview description: </p>
+                    <p th:text="${interview.description}"></p>
+                </div>
+            </div>
+
+
+
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <p th:text="'Salary: ' + ${interview.salary}"></p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-3">
+                    <span th:text="'Date Created: ' + ${#temporals.format(interview.created, 'dd-MM-yyyy HH:mm')}">
+                    </span>
+                    <br>
+                    <span th:text="'Date Modified: ' + ${#temporals.format(interview.modified, 'dd-MM-yyyy HH:mm')}">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mb-3">
+                <div class="col-8 col-md-5">
+                    <p th:text="'Uploaded by: ' + ${interview.user.username}"></p>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-center">
+                <div class="col-8 col-md-5">
+                    <a class="ml-2 btn btn-light btn-outline-primary" th:href="@{/reviews}">Back</a>
+                </div>
+            </div>
+        </div>
+
+
+
+    <th:block th:insert="fragments/base :: footer"></th:block>
+</body>
+    <th:block th:insert="fragments/base :: scripts"></th:block>
+</html>
