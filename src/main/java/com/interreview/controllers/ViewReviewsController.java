@@ -30,4 +30,11 @@ public class ViewReviewsController {
         model.addAttribute("interviews", interviews);
         return "display-reviews";
     }
+
+    @GetMapping("/user-reviews")
+    public String showUserReviewsPage(Model model, @AuthenticationPrincipal User user){
+        List<Interview> interviews = (List<Interview>) this.interviewRepo.findInterviewByUser(user);
+        model.addAttribute("interviews", interviews);
+        return "user-reviews";
+    }
 }
