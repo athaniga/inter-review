@@ -22,7 +22,11 @@ public class HomeController {
         return "login";
     }
 
-
+    @GetMapping("/account")
+    public String viewAccountPage(Model model, @AuthenticationPrincipal User user) {
+        model.addAttribute("user", user);
+        return "view-account";
+    }
 
     @GetMapping("/about")
     public String getAboutPage() {

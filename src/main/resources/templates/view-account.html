@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <th:block th:insert="fragments/base :: headerFiles"></th:block>
+    <title>My Account</title>
+</head>
+<body>
+    <th:block th:insert="fragments/base :: navigation"></th:block>
+    <br>
+    <div class="container-fluid">
+        <div class="row justify-content-start">
+            <div class="col-sm">
+                <h4>Account Details</h4>
+            </div>
+        </div>
+        <div class="row justify-content-start border border-primary mt-1 pt-1">
+            <div class="col-sm-3 offset-1">
+                <h5 th:text="'Username: ' + ${user.username}"></h5>
+            </div>
+            <div class="col-sm-3 offset-1">
+                <h5 th:text="'Email: ' + ${user.email}"></h5>
+            </div>
+        </div>
+        <div class="row justify-content-start border border-primary mt-1 pt-1">
+            <div class="col offset-1">
+                <h5 th:text="'Registered Name: ' + ${user.firstName} + ' ' + ${user.lastName}"></h5>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:insert="fragments/base :: footer"></th:block>
+</body>
+
+    <th:block th:insert="fragments/base :: scripts"></th:block>
+
+</html>

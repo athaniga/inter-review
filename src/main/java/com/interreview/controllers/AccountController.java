@@ -36,6 +36,7 @@ public class AccountController {
         return "create-signup";
     }
 
+
     @PostMapping
     public String handleCreateAccountForm(@Valid @ModelAttribute("user") User user, Errors errors) {
         if (errors.hasErrors()) {

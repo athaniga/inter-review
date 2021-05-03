@@ -45,7 +45,7 @@ public class ReviewController {
     public String showReview(@PathVariable Long id, Model model) {
         Interview interview = this.interviewRepo.findById(id).get();
         model.addAttribute("interview", interview);
-        return "view-review";
+        return "edit-review";
     }
 
     @PostMapping
@@ -66,7 +66,7 @@ public class ReviewController {
     @PostMapping("/edit/{id}")
     public String handleEditReviewForm(@PathVariable Long id, @Valid @ModelAttribute("interview") Interview interview, Errors errors) {
         if (errors.hasErrors()) {
-            return "view-review";
+            return "edit-review";
         }
 
         try {
@@ -74,7 +74,7 @@ public class ReviewController {
             updateOriginalReview(originalReview, interview);
             this.interviewRepo.save(originalReview);
         } catch(DataIntegrityViolationException e) {
-            return "view-review";
+            return "edit-review";
         }
 
         return "redirect:/reviews";
