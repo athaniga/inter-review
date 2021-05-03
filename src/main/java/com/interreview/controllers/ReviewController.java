@@ -2,10 +2,14 @@ package com.interreview.controllers;
 
 import com.interreview.data.CareerFieldRepository;
 import com.interreview.data.InterviewRepository;
+import com.interreview.data.UserRepository;
 import com.interreview.models.CareerField;
 import com.interreview.models.Interview;
+import com.interreview.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -21,6 +25,7 @@ public class ReviewController {
 
     private InterviewRepository interviewRepo;
     private CareerFieldRepository careerFieldRepo;
+
 
     @Autowired
     public ReviewController(InterviewRepository interviewRepo, CareerFieldRepository careerFieldRepo) {
@@ -44,11 +49,17 @@ public class ReviewController {
     }
 
     @PostMapping
-    public String handleCreateInterviewForm(@Valid @ModelAttribute("interview") Interview interview, Errors errors) {
+    public String handleCreateInterviewForm(@Valid @ModelAttribute("interview") Interview interview, Errors errors, @AuthenticationPrincipal User user) {
         if (errors.hasErrors()) {
             return "create-interview-review";
         }
-        this.interviewRepo.save(interview);
+        try {
+            interview.setUser(user);
+            this.interviewRepo.save(interview);
+        } catch (DataIntegrityViolationException e) {
+            return "create-interview-review";
+        }
+
         return "redirect:/reviews";
     }
 

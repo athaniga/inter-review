@@ -22,7 +22,7 @@ public class Interview {
     @PositiveOrZero(message = "Value can not be negative. For volunteer work, enter 0")
     @NotNull(message = "Cannot be blank")
     private double salary;
-    //private String uploadedBy; Grab username?
+
 
     private LocalDateTime created;
     private LocalDateTime modified;
@@ -33,6 +33,11 @@ public class Interview {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "career_field_id")
     private CareerField careerField;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "user_id")
+    private User user;
+
 
 
 
@@ -110,6 +115,14 @@ public class Interview {
 
     public void setCareerField(CareerField careerField) {
         this.careerField = careerField;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
 

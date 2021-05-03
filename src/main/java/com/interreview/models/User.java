@@ -44,6 +44,12 @@ public class User implements UserDetails {
 
     public enum Role { ROLE_ADMIN, ROLE_USER}
 
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Interview> interviews;
+
+
+
     public User() {
         this.accountNonExpired = true;
         this.accountNonLocked = true;
@@ -112,6 +118,14 @@ public class User implements UserDetails {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Set<Interview> getInterviews() {
+        return interviews;
+    }
+
+    public void setInterviews(Set<Interview> interviews) {
+        this.interviews = interviews;
     }
 
     @Override

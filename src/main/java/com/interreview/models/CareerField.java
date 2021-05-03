@@ -25,7 +25,6 @@ public class CareerField {
     }
 
 
-
     @OneToMany(mappedBy = "careerField", cascade = CascadeType.ALL)
     private Set<Interview> interviews = new HashSet<>();
 
