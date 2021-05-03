@@ -67,7 +67,7 @@ public class ReviewController {
             return "create-interview-review";
         }
 
-        return "redirect:/reviews";
+        return "redirect:/reviews/user-reviews";
     }
 
     @PostMapping("/edit/{id}")
@@ -84,7 +84,7 @@ public class ReviewController {
             return "edit-review";
         }
 
-        return "redirect:/reviews";
+        return "redirect:/reviews/user-reviews";
     }
 
     private void updateOriginalReview(Interview original, Interview update) {
@@ -98,6 +98,6 @@ public class ReviewController {
     @GetMapping("/delete/{id}")
     public String deleteReview(@PathVariable Long id) {
         this.interviewRepo.deleteById(id);
-        return "redirect:/reviews";
+        return "redirect:/reviews/user-reviews";
     }
 }
