@@ -14,7 +14,7 @@
 
     <table class="table mt-3">
         <thead>
-        <tr class="border border-primary">
+        <tr>
 
             <th scope="col">Username</th>
             <th scope="col">Email</th>
@@ -23,7 +23,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr class="border border-primary">
+        <tr>
             <td th:text="${user.username}"></td>
             <td th:text="${user.email}"></td>
             <td th:text="${user.firstName} + ' ' + ${user.lastName}"></td>

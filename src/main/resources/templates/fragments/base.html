@@ -40,9 +40,6 @@
                     sec:authorize="isAuthenticated()">
                     <a class="nav-link" th:href="@{/reviews/user-reviews}">My Reviews</a>
                 </li>
-                <li class="nav-item" th:classappend="${#request.getServletPath() == '/career-fields' ? 'active' : ''}">
-                    <a class="nav-link" th:href="@{/career-fields}">Career Fields</a>
-                </li>
                 <li class="nav-item" th:classappend="${#request.getServletPath() == '/account' ? 'active' : ''}"
                     sec:authorize="isAuthenticated()">
                     <a class="nav-link" th:href="@{/account}">My Account</a>
