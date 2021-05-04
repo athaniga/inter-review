@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://thymeleaf.org">
-<!-- xmlns="http://www.w3.org/1999/html" -->
 <head>
     <th:block th:insert="fragments/base :: headerFiles"></th:block>
     <title></title>
@@ -21,6 +20,7 @@
         <div class="container-fluid">
 
             <input class="form-control" id="id" th:field="*{id}" type="hidden">
+            <input class="form-control" id="modified" th:field="*{modified}" type="hidden">
 
             <div class="row justify-content-center">
                 <div class="col-8 col-md-5">
@@ -100,8 +100,8 @@
 
             <div class="row justify-content-center">
                 <div class="col-8 col-md-5">
-                    <input class="btn btn-light btn-outline-dark" type="submit" value="Submit"/>
-                    <a class="ml-2 btn btn-light btn-outline-dark" th:href="@{/reviews/user-reviews}">Cancel</a>
+                    <input class="btn btn-light btn-outline-primary" type="submit" value="Submit"/>
+                    <a class="ml-2 btn btn-light btn-outline-primary" th:href="@{/reviews/user-reviews}">Cancel</a>
                 </div>
             </div>
         </div>

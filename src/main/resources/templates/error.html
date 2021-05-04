@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <th:block th:insert="fragments/base :: headerFiles"></th:block>
+    <title>Whoops</title>
+</head>
+
+<body>
+<th:block th:insert="fragments/base :: navigation"></th:block>
+<br/>
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-8 col-md-3 text-center mb-3">
+            <h3 th:text="${message}">Oops, something went wrong</h3>
+        </div>
+    </div>
+</div>
+
+
+<th:block th:insert="fragments/base :: footer"></th:block>
+</body>
+
+<th:block th:insert="fragments/base :: scripts"></th:block>
+
+</html>

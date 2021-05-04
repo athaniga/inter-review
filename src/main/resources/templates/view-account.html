@@ -10,26 +10,28 @@
 <body>
     <th:block th:insert="fragments/base :: navigation"></th:block>
     <br>
-    <div class="container-fluid">
-        <div class="row justify-content-start">
-            <div class="col-sm">
-                <h4>Account Details</h4>
-            </div>
-        </div>
-        <div class="row justify-content-center border border-primary mt-1 pt-1">
-            <div class="col-sm-3 col-lg-5 offset-1">
-                <h5 th:text="'Username: ' + ${user.username}"></h5>
-            </div>
-            <div class="col-sm-3 col-lg-5 offset-1">
-                <h5 th:text="'Email: ' + ${user.email}"></h5>
-            </div>
-        </div>
-        <div class="row justify-content-center border border-primary mt-1 pt-1">
-            <div class="col-lg-5 offset-1">
-                <h5 th:text="'Registered Name: ' + ${user.firstName} + ' ' + ${user.lastName}"></h5>
-            </div>
-        </div>
-    </div>
+
+
+    <table class="table mt-3">
+        <thead>
+        <tr class="border border-primary">
+
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Name</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="border border-primary">
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.firstName} + ' ' + ${user.lastName}"></td>
+        </tr>
+        <tr>
+
+        </tbody>
+    </table>
 
     <th:block th:insert="fragments/base :: footer"></th:block>
 </body>

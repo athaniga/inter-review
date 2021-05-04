@@ -9,12 +9,22 @@
 </head>
 <body>
   <th:block th:insert="fragments/base :: navigation"></th:block>
-
-  <div class="container-fluid mt-2">
+  <br>
+  <div class="container-fluid mt-3">
     <div class="row justify-content-center">
       <h3 class="text-center col-12">My Reviews</h3>
     </div>
   </div>
+
+  <div th:if="${#lists.isEmpty(interviews)}" class="container-fluid mt-5">
+    <div class="row justify-content-center">
+      <h5>You Haven't Made Any Reviews Yet</h5>
+    </div>
+    <div class="row justify-content-center">
+      <a th:href="@{/create-listing}">Start A Review</a>
+    </div>
+  </div>
+
 
   <div class="container-fluid mt-5">
     <div th:each="interview: ${interviews}">
